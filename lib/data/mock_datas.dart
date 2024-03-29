@@ -1,3 +1,4 @@
+import 'package:injectable/injectable.dart';
 import 'package:mask_info_app/domain/model/location.dart';
 import 'package:mask_info_app/domain/model/permission.dart';
 import 'package:mask_info_app/domain/model/store.dart';
@@ -5,6 +6,7 @@ import 'package:mask_info_app/domain/permission/location_permission_handler.dart
 import 'package:mask_info_app/domain/repository/location_repository.dart';
 import 'package:mask_info_app/domain/repository/store_repository.dart';
 
+@Singleton(as: StoreRepository)
 class MockStoreRepositoryImpl implements StoreRepository {
   @override
   Future<List<Store>> getStores() async {
@@ -36,6 +38,7 @@ class MockStoreRepositoryImpl implements StoreRepository {
   }
 }
 
+@Singleton(as: LocationRepository)
 class MockLocationRepositoryImpl implements LocationRepository{
   @override
   Future<Location> getLocation() async{
@@ -43,6 +46,7 @@ class MockLocationRepositoryImpl implements LocationRepository{
   }
 }
 
+@Singleton(as: LocationPermissionHandler)
 class MockLocationPermissionHandlerImpl implements LocationPermissionHandler{
   @override
   Future<Permission> checkPermission() async{
