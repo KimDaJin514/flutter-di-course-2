@@ -1,3 +1,5 @@
+import 'package:geolocator/geolocator.dart';
+
 class Location {
   final num latitude;
   final num longitude;
@@ -6,7 +8,13 @@ class Location {
 }
 
 extension DistanceBetween on Location {
+
   double distanceBetween(Location other) {
-    return 0.0;
+    return Geolocator.distanceBetween(
+      latitude.toDouble(),
+      longitude.toDouble(),
+      other.latitude.toDouble(),
+      other.longitude.toDouble(),
+    );
   }
 }
