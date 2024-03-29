@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../../domain/model/store.dart';
 
@@ -10,12 +11,15 @@ class StoreItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Column(
-          children: [
-            Text(store.name),
-            Text(store.address),
-            Text('${store.distance / 1000.0}km'),
-          ],
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(store.name),
+              Text(store.address),
+              Text('${store.distance / 1000.0}km'),
+            ],
+          ),
         ),
         Column(
           children: [

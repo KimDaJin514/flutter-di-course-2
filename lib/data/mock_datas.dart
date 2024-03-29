@@ -40,6 +40,7 @@ class MockStoreRepositoryImpl implements StoreRepository {
   }
 }
 
+@prod
 @Singleton(as: LocationRepository)
 class MockLocationRepositoryImpl implements LocationRepository{
   @override
@@ -48,6 +49,7 @@ class MockLocationRepositoryImpl implements LocationRepository{
   }
 }
 
+@prod
 @Singleton(as: LocationPermissionHandler)
 class MockLocationPermissionHandlerImpl implements LocationPermissionHandler{
   @override
