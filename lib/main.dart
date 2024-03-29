@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mask_info_app/core/router/router.dart';
 import 'package:mask_info_app/di/di_setup.dart';
-import 'package:mask_info_app/presentation/main_screen.dart';
-import 'package:mask_info_app/presentation/main_viewmodel.dart';
-import 'package:provider/provider.dart';
 
 void main() {
   configureDependencies();
@@ -14,15 +12,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-      ),
-      home: ChangeNotifierProvider(
-        create: (context) => getIt.get<MainViewModel>(),
-        child: const MainScreen(),
       ),
     );
   }
